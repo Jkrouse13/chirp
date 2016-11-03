@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  chirp: MyText
+  user: one
+  file_id: MyString
+
+two:
+  chirp: MyText
+  user: two
+  file_id: MyString
