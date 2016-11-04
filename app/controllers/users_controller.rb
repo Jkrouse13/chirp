@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :require_logged_in, only: [:follow_user, :unfollow_user, :show]
+    before_action :require_logged_in, only: [:follow_user, :unfollow_user, :show, :my_chirps]
 
     def create
         @user = User.new(user_params)
@@ -19,6 +19,11 @@ class UsersController < ApplicationController
         else
             render json:["Incorrect credentials"], status: :unauthorized
         end
+    end
+
+    def my_chirps
+        @posts = @current_user.posts
+        render json: @posts
     end
 
     def index

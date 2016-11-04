@@ -21,7 +21,7 @@ gem 'sinatra', github: 'sinatra/sinatra'
 gem "refile", require: "refile/rails", github: 'refile/refile'
 gem "refile-mini_magick"
 gem 'refile-postgres', '~> 1.4'
-
+gem 'rails_12factor', group: :production
 
 
 # Use Capistrano for deployment
