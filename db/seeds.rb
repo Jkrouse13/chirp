@@ -10,9 +10,31 @@
    name: Faker::StarWars.character,
    password: Faker::Internet.password,
    email: Faker::Internet.email
-   )  
+   )
 
 end
+
+User.create!(
+name:  "Jon",
+password:  "123",
+email: "jk@gmail.com"
+)
+
+User.create!(
+name: "Kyle",
+password: "password",
+email: "kwhuff@gmail.com"
+)
+User.create!(
+name: "Sam",
+password: "password",
+email: "samriley1217@gmail.com"
+)
+User.create!(
+name: "Charlie",
+password: "charlie",
+email: "charles.mustaklem@gmail.com"
+)
 
 20.times do
    User.all.sample.posts << Post.new(
@@ -20,6 +42,6 @@ end
    )
 end
 
-5.times do
+15.times do
    User.all.sample.follow!(User.all.sample)
 end

@@ -1,7 +1,10 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  validates :chirp, length: { maximum: 160 }
+  validates :chirp, length: { maximum: 170 }
+  validates_presence_of :chirp
+  
+  attachment :file, type: :image
 
   def self.timeline(user)
    following_ids = user.followees(User).pluck(:id)

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+    before_action :require_logged_in, only: [:follow_user, :unfollow_user]
+
     def create
         @user = User.new(user_params)
         if @user.save
@@ -25,8 +27,24 @@ class UsersController < ApplicationController
     end
 
     def follow_user
-        @current_user.follow!(User.find(params[:id])
+        @current_user.follow!(User.find(params[:id]))
         render json: @current_user
+    end
+
+    def unfollow_user
+        @current_user.unfollow!(User.find(params[:id]))
+        render json: @current_user
+    end
+
+    def all_followers
+        @followers = User.find(params[:id]).followers(User)
+        render json: @followers
+    end
+
+    def practice_counting
+        @user = User.find(params[:id])
+        @user.followers_count
+        render json: @user
     end
 
     private
@@ -34,4 +52,5 @@ class UsersController < ApplicationController
     def user_params
       params.permit(:name, :email, :password, :file)
     end
+
 end

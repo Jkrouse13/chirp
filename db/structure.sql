@@ -229,7 +229,9 @@ CREATE TABLE users (
     api_token character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
-    file_id character varying
+    file_id character varying,
+    followers_count integer DEFAULT 0,
+    followees_count integer DEFAULT 0
 );
 
 
@@ -435,6 +437,6 @@ ALTER TABLE ONLY posts
 
 SET search_path TO "$user", public;
 
-INSERT INTO schema_migrations (version) VALUES ('20161103182918'), ('20161103182919'), ('20161103182920'), ('20161103192729'), ('20161103193835'), ('20161103202505'), ('20161103210331');
+INSERT INTO schema_migrations (version) VALUES ('20161103182918'), ('20161103182919'), ('20161103182920'), ('20161103192729'), ('20161103193835'), ('20161103202505'), ('20161103210331'), ('20161104153918');
 
 

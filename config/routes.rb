@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     get '/index' => 'posts#index'
     get '/all' => 'posts#show_all'
     get '/users/index' => 'users#index'
+    get '/follow' => 'users#follow_user'
+    get '/unfollow' => 'users#unfollow_user'
+    get '/followers' => 'users#all_followers'
+    post '/chirp' => 'posts#create'
+    get '/practice' => 'users#practice_counting'
   end
 
 

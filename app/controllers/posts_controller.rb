@@ -11,6 +11,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+    render json: @post
+  end
+
   def show_all
     @posts = Post.all.order("created_at DESC")
     render json: @posts
