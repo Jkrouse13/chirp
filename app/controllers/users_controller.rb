@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :require_logged_in, only: [:follow_user, :unfollow_user]
+    before_action :require_logged_in, only: [:follow_user, :unfollow_user, :show]
 
     def create
         @user = User.new(user_params)
@@ -46,6 +46,12 @@ class UsersController < ApplicationController
         @user.followers_count
         render json: @user
     end
+
+    def show
+        @user = current_user
+        render json: @user
+    end
+
 
     private
 

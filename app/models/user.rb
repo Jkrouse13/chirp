@@ -13,7 +13,4 @@ class User < ApplicationRecord
   has_many :posts
 
 
-  # def file
-  #  Refile.attachment_url(object, :file, :fit, 800, 800, format: "jpg")
-  # end
 end
