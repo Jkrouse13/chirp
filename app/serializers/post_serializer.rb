@@ -1,4 +1,4 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes  :chirp, :file_id
+  attributes  :id, :chirp, :file_id, :created_at
   has_one :user
 end

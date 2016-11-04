@@ -11,7 +11,8 @@ class User < ApplicationRecord
   acts_as_follower
   acts_as_followable
   has_many :posts
-  def file
-   Refile.attachment_url(object, :file, :fit, 800, 800, format: "jpg")
-  end
+
+  # def file
+  #  Refile.attachment_url(object, :file, :fit, 800, 800, format: "jpg")
+  # end
 end
