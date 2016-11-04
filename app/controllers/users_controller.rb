@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
 
     def my_chirps
-        @posts = @current_user.posts
+        @posts = @current_user.posts.order("created_at DESC")
         render json: @posts
     end
 
