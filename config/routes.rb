@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     get '/follow' => 'users#follow_user' #the current user follows the user whose id is supplied, requires an api_token
     get '/unfollow' => 'users#unfollow_user' #the current user unfollows the user whose id is supplied, requires an api_token
     get '/followers' => 'users#all_followers' #sends back all of a users followers, needs id of the main FOLLOWEE
+    get '/followees' => 'users#all_followees' #sends back all of a list of users that the user whoese id is following
     post '/chirp' => 'posts#create' #creates new chirp
     get '/user' => 'users#show'  #send currentusers info back requires api_token
     get '/my_chirps' => 'users#my_chirps' #sends currentusers posts back, needs api_token
@@ -19,4 +20,3 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
-  

@@ -46,6 +46,11 @@ class UsersController < ApplicationController
         render json: @followers
     end
 
+    def all_followees
+        @followees = User.find(params[:id]).followees(User)
+        render json: @followees
+    end
+    
     def practice_counting
         @user = User.find(params[:id])
         @user.followers_count
