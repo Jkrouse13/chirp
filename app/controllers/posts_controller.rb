@@ -5,8 +5,8 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if current_user.posts << @post
-      @posts = Post.timeline(current_user)
-      render json: @post
+      @posts = Post.all.order("created_at DESC")
+      render json: @posts
     else
       render json: @post.errors.full_messages, status: :unprocessable_entity
     end
