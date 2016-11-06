@@ -6,7 +6,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if current_user.posts << @post
       @posts = Post.timeline(current_user)
-      render json: @posts
+      render json: @post
     else
       render json: @post.errors.full_messages, status: :unprocessable_entity
     end
