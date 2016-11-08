@@ -22,7 +22,7 @@ class UsersController < ApplicationController
     end
 
     def my_chirps
-        @posts = @current_user.posts.order("created_at DESC")
+        @posts = current_user.posts.order("created_at DESC")
         render json: @posts
     end
 
@@ -32,12 +32,12 @@ class UsersController < ApplicationController
     end
 
     def follow_user
-        @current_user.follow!(User.find(params[:id]))
+        current_user.follow!(User.find(params[:id]))
         render json: @current_user
     end
 
     def unfollow_user
-        @current_user.unfollow!(User.find(params[:id]))
+        current_user.unfollow!(User.find(params[:id]))
         render json: @current_user
     end
 
@@ -51,15 +51,8 @@ class UsersController < ApplicationController
         render json: @followees
     end
 
-    def practice_counting
-        @user = User.find(params[:id])
-        @user.followers_count
-        render json: @user
-    end
-
     def show
-        @user = current_user
-        render json: @user
+        render json: current_user
     end
 
 
