@@ -4,10 +4,6 @@ class UserSerializer < ActiveModel::Serializer
 
 
   def file
-    if @file == nil
-      "https://robohash.org/" + "#{object.name}"
-    else
      Refile.attachment_url(object, :file, :fit, 50, 50, format: "jpg")
-    end
   end
 end
